@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>个人中心</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="/css/community.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/images/favicon.png" sizes="32*32" tzype="image/x-icon">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/moment.js" type="application/javascript"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
+
+</head>
+<body class="body">
+<nav class="navbar navbar-default">
+    <!--    插入顶部栏-->
+    <div th:replace="~{commons/bar.html :: topbar}"></div>
+</nav>
+<div class="container-fluid main profile ">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+            <div>
+                <img class="personage-img" src="/images/world.png">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <img class="img-thumbnail person-img personage-url" style="height: 140px;width: 140px"
+                         th:src="${user!=null? user.getAvatar_url(): '/images/root.png0'}">
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="media-body personage-message">
+               <span class="media-heading ">
+                   用户名: <span th:text="${user.account_name}"></span>
+               </span>
+                        <span class="text-desc personage-age">
+                            创建时间：<span th:text="${#dates.format(user.getGmt_create(),'yyyy-MM-dd HH:mm')}"></span>
+
+                        </span></div>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="container-fluid main profile ">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+        <h3><span th:text="我的话题"></span></h3>
+        <hr/>
+        <div class="media " style="height: 70px" th:each="questionDto : ${PaginationDTO.data}">
+            <div class="media-left">
+                <a th:href="@{'/personage/'+${questionDto.user.id}}">
+                    <img class="img-circle logo" th:src="${questionDto.user.getAvatar_url()}">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">
+                    <a th:text="${questionDto.getTitle()}" th:href="@{'/question/'+${questionDto.getId()}}"></a>
+                </h4>
+                <span th:text="${questionDto.getDescription()}"></span> <br/>
+                <span class="text-desc">
+                        <span th:text="${questionDto.getTag()}"></span> • <span
+                        th:text="${questionDto.getComment_count()}" placeholder="0"></span>个回复 • <span
+                        th:text="${questionDto.getView_count()}" placeholder="0">0</span>次浏览 • <span
+                        th:text="${#dates.format(questionDto.getGmt_create(),'yyyy-MM-dd HH:mm')}"></span></span>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li th:if="${PaginationDTO.showFirstPage}">
+                        <a th:href="@{(${user.id})(page=${1})}" aria-label="Previous">
+                            <span aria-hidden="true">&lt;&lt;</span>
+                        </a>
+                    </li>
+                    <li th:if="${PaginationDTO.showPrevious}">
+                        <a th:href="@{(${user.id})(page=${PaginationDTO.page - 1})}" aria-label="Previous">
+                            <span aria-hidden="true">&lt;</span>
+                        </a>
+                    </li>
+                    <li th:each="page : ${PaginationDTO.pages}" th:class="${PaginationDTO.page==page}?'active':''">
+                        <a th:href="@{(${user.id})(page=${page})}" th:text="${page}"></a>
+                    </li>
+
+                    <li th:if="${PaginationDTO.showNext}">
+                        <a th:href="@{(${user.id})(page=${PaginationDTO.page + 1})}" aria-label="Previous">
+                            <span aria-hidden="true">&gt;</span>
+                        </a>
+                    </li>
+                    <li th:if="${PaginationDTO.showEndPage}">
+                        <a th:href="@{(${user.id})(page=${PaginationDTO.totalPage})}" aria-label="Previous">
+                            <span aria-hidden="true">&gt;&gt;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</div>
+<div th:replace="~{commons/bar.html :: foot}"></div>
+</body>
+</html>

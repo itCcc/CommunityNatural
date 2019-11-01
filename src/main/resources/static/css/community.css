@@ -1,0 +1,124 @@
+body {
+    background-color: #efefef;
+}
+
+
+.main {
+    background-color: white;
+    margin: 30px 400px 30px 400px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 30px;
+}
+.glyphicon-top{
+    top: 4px;
+}
+
+.personage-img {
+    max-width: 1019px;
+}
+
+.personage-url {
+    width: 150px;
+    margin: 20px 31px 50px 30px;
+}
+
+.submit {
+    margin-left: 415px;
+}
+
+.personage-message {
+    padding-top: 75px;
+}
+
+.personage-age {
+    margin-left: 40px;
+}
+.logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 20px;
+}
+.text-desc {
+    font-size: 12px;
+    full-width: normal;
+    color: #999;
+}
+.profile .section {
+    margin-top: 35px;
+}
+.question-tag{
+    margin-right: 5px;
+}
+.question-related{
+    line-height: 30px;
+}
+.community-menu{
+    color: #999;
+    font-size: 13px;
+}
+.jumbotron {
+    margin: 50px;
+}
+.media-body-body {
+margin-top: 20px;
+margin-bottom: 5px;
+}
+.comment {
+    margin: 15px 0;
+}
+.comments {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.sub-comments {
+    border: 1px solid #999999;
+    border-radius: 5px;
+    margin-top: 15px;
+    padding: 15px 0 15px 0px;
+}
+.sub-comments .btn {
+    margin-top: 20px;
+    margin-bottom: 7px;
+}
+.btn-comment {
+    float: right;
+    margin-bottom: 10px;
+}
+.comment-sp {
+    margin-top: 0px;
+}
+
+.comment-hr {
+    margin-top: 10px;
+}
+.menu{
+    color: #999;
+}
+.menu .icon{
+    margin-right: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.menu .active {
+    color: #499ef3;
+}
+.menu .icon:hover{
+    color: #499ef3;
+}
+.control{
+    height: 42px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.body {
+    background-image: url("../images/background.jpg");
+    background-repeat: repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}

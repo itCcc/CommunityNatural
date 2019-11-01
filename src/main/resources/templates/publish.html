@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Natural社区</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="/css/community.css" rel="stylesheet"/>
+    <link href="/css/editormd.min.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="/images/favicon.png" sizes="32*32" tzype="/image/x-icon">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/moment.js" type="application/javascript"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
+    <script src="/js/editormd.min.js" type="application/javascript"></script>
+    <script src="/js/lib/marked.min.js" ></script>
+    <script src="/js/lib/prettify.min.js" ></script>
+    <script src="/js/plugins/image-dialog/image-dialog.js" ></script>
+
+</head>
+<body class="body">
+<nav class="navbar navbar-default">
+<!--    插入顶部栏-->
+    <div th:replace="~{commons/bar.html :: topbar}" ></div>
+</nav>
+
+        <div class="container-fluid main">
+            <div>
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" >
+        <h2><span class="glyphicon glyphicon-plus glyphicon-top" aria-hidden="true"></span> 发起</h2>
+        <hr/>
+            <form action="/publish" method="post">
+                <input type="hidden" name="id" th:value="${id}">
+                <div class="form-group">
+                    <label for="title">问题标题(简单扼要)：</label>
+                    <input type="text" class="form-control" id="title" placeholder="问题标题" name="title" th:value="${title}">
+                </div>
+
+                <div class="form-group"  >
+                    <label for="title">问题补充(必填，请参照右侧提示：)</label>
+                    <div id="question-editor">
+                    <textarea name="description"  style="display:none;" class="form-control " id="description" cols="30" rows="10" th:text="${description}" ></textarea>
+                    </div>
+                    </div>
+
+                <script type="text/javascript">
+                    $(function() {
+                        var editor = editormd("question-editor", {
+                             width  : "100%",
+                             height : 350,
+                             path : "/js/lib/",
+                            delay: 0,
+                            watch: false,
+                            placeholder:"请输入问题描述......",
+                            imageUpload    : true,
+                            imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                            imageUploadURL: "../file/upload"
+                        });
+                    });
+                </script>
+                <div class="form-group">
+                    <label for="title">添加标签</label>
+                    <input type="text" class="form-control" name="tag" id="tag" placeholder="输入标签，以，号隔开" th:value="${tag}">
+                </div>
+
+
+                <div class="container-fluid main ">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                            <div style="color: red" class=" col-lg-12 col-md-12 col-sm-12 col-xs-12" th:text="${error}" th:if="error!=null"></div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit" class="btn btn-success btn-publish ">
+                                发布
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-12 col-xs-12" >
+            <h3>问题发起注意事项</h3>
+            <hr/>
+            <h4>1    摩点仅为发起者和支持者之间的预售提供平台网络空间、技术服务和支持等服务.<br/>
+                <hr/>
+
+            2    本协议内容包括协议正文、附件、摩点产品上已经发布和将来可能发布的各类规则.<br/>
+                <hr/>
+
+            3    发起者勾选本协议、签署本协议，或者使用本协议项下服务的，即视为发起者同意并接受本协议的全部内容.<br/>
+                <hr/>
+            </h4>
+        </div>
+    </div>
+    </div>
+<div th:replace="~{commons/bar.html :: foot}"></div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Natural社区</title>
+</head>
+<body>
+
+    <div class="container-fluid" th:fragment="topbar">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Natural社区</span>
+            </button>
+            <a class="navbar-brand" href="/">Natural社区</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left" action="/" method="get">
+                <div class="form-group">
+                    <input type="text" class="form-control submit" name="search" placeholder="搜索话题">
+                </div>
+                <button class="btn btn-default " type="submit">搜索</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a th:href="@{/publish}" th:if="${session.user!=null}">发布</a></li>
+                <li>
+                    <a href="/profile/replies" th:if="${session.user!=null}">通知
+                        <span class="badge" th:text="${session.unreadCount}" th:if="${session.unreadCount!=0}"></span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       role="button" aria-haspopup="true" aria-expanded="false"
+                       th:if="${session.user!=null}" >
+                        <span th:text="${session.user.getAccount_name()}"></span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/profile/questions">我与相关</a></li>
+                        <li><a href="/logout">注销登录</a></li>
+                    </ul>
+                <li>
+                    <a href="https://github.com/login/oauth/authorize?client_id=510294ddbff4fe55b4a6&reddirect_uri=http://localhost:8080/callback/callback&scope=user&state=1"
+                       th:if="${session.user==null}">登录</a>
+                </li>
+                    </ul>
+            </li>
+        </div>
+    </div>
+        </div>
+    <!--    页尾-->
+    <div class="footer" th:fragment="foot">
+        <div>© 2019· CC BY-NC-SA 10.0 · Natural中文社区 · 备10675123137号</div>
+    </div>
+</body>
+</body>
+</html>
