@@ -43,9 +43,9 @@
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading" >
-                        <a th:text="${questionDto.getTitle()}" th:href="@{'/question/'+${questionDto.getId()}}"></a>
+                        <a class="title" th:text="${questionDto.getTitle()}"
+                           th:href="@{'/question/'+${questionDto.getId()}}"></a>
                     </h4>
-                    <span th:text="${questionDto.getDescription()}"></span> <br/>
                     <span class="text-desc">
                         <span th:text="${questionDto.getTag()}"></span> • <span th:text="${questionDto.getComment_count()}" placeholder="0" ></span>个回复 • <span
                             th:text="${questionDto.getView_count()}" placeholder="0">0</span>次浏览 • <span  th:if="${questionDto.getGmt_modified()==null}" th:text="${#dates.format(questionDto.getGmt_create(),'yyyy-MM-dd HH:mm')}"></span>
