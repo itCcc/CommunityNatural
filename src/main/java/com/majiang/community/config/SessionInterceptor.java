@@ -1,4 +1,4 @@
-package com.majiang.community.Config;
+package com.majiang.community.config;
 
 
 import com.majiang.community.mapper.INotificationDao;
