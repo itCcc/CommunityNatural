@@ -14,8 +14,10 @@ body {
     top: 4px;
 }
 
-.btn-publish.right {
+.btn-publish-right {
     float: right;
+    margin-right: 100px;
+    margin-bottom: 15px;
 }
 
 .personage-img {
@@ -86,10 +88,7 @@ margin-bottom: 5px;
     margin-top: 20px;
     margin-bottom: 7px;
 }
-.btn-comment {
-    float: right;
-    margin-bottom: 10px;
-}
+
 .comment-sp {
     margin-top: 0px;
 }
