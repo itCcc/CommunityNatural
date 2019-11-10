@@ -12,6 +12,10 @@ public class MyMvcConfig implements  WebMvcConfigurer{
     @Autowired
     private SessionInterceptor sessionInterceptor;
 
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("index");
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
