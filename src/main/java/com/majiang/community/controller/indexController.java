@@ -34,11 +34,11 @@ public class indexController {
         if (paginationDTO == null) {
             model.addAttribute("indexPaginationDTO", paginationDTO);
             model.addAttribute("message", "您搜索的问题不存在哦，还请您重新输入关键字！");
-            return "Redirect:/";
+            return "index";
         } else {
             model.addAttribute("indexPaginationDTO", paginationDTO);
             model.addAttribute("search", search);
-            return "Redirect:/";
+            return "index";
         }
     }
 
