@@ -62,10 +62,10 @@ public class AuthorizeController {
             user.setAvatar_url(githubUser.getAvatar_url());
             userService.createOrUpdate(user);
             response.addCookie(new Cookie("token",token));
-            return "Redirect:/";
+            return "redirect:/";
         }else {
             log.error("callback git github error ，{}", githubUser);
-            return "Redirect:/";
+            return "redirect:/";
         }
     }
     @GetMapping("/logout")
