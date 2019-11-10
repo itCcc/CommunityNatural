@@ -12,12 +12,6 @@ public class MyMvcConfig implements  WebMvcConfigurer{
     @Autowired
     private SessionInterceptor sessionInterceptor;
 
-    //添加视图解析器
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
-        registry.addViewController("index.html").setViewName("index");
-    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
