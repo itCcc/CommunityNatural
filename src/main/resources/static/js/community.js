@@ -2,8 +2,7 @@
 /**
  * 回复功能
  */
-function post(e) {
-    var url = e.getAttribute("data-url");
+function post() {
     var question_id=$("#questionDTO_id").val();
     var content = $("#comment_content").val();
     comment2target(question_id, 1, content, url);
@@ -30,7 +29,7 @@ function comment2target(targetId, type, content, url) {
                 if (response.code == 2003) {
                     var isAccepted =confirm(response.message);
                     if (isAccepted){
-                        window.open(url);
+                        window.open("/");
                         window.localStorage.setItem("closable","true");
                     }
                 } else {

@@ -76,6 +76,13 @@ body {
 margin-top: 20px;
 margin-bottom: 5px;
 }
+
+.question-button {
+    float: right;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+
 .comment {
     margin: 15px 0;
 }

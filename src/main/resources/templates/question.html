@@ -124,9 +124,8 @@
                 </div>
                 <input type="hidden" id="questionDTO_id" th:value="${questionDTO.id}">
                 <textarea class="form-control comment" rows="6" id="comment_content"></textarea>
-                <button type="submit" class="btn btn-success btn-publish btn-comment" data-th-src="@{https://github.com/login/oauth/authorize(client_id='510294ddbff4fe55b4a6',
-                redirect_uri=${#httpServletRequest.getRequestURL()+'callback'},scope='user',state=1)}"
-                        onclick="post(this)">
+                <button type="submit" class="btn btn-success btn-publish btn-comment question-button"
+                        onclick="post()">
                         回复
                     </button>
 
