@@ -16,6 +16,7 @@
     <script src="/js/lib/marked.min.js" ></script>
     <script src="/js/lib/prettify.min.js" ></script>
     <script src="/js/plugins/image-dialog/image-dialog.js" ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
 </head>
 <body class="body">
@@ -25,7 +26,6 @@
 </nav>
 
         <div class="container-fluid main">
-            <div>
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" >
         <h2><span class="glyphicon glyphicon-plus glyphicon-top" aria-hidden="true"></span> 发起</h2>
         <hr/>
@@ -62,25 +62,17 @@
                     <label for="title">添加标签</label>
                     <input type="text" class="form-control" name="tag" id="tag" placeholder="输入标签，以，号隔开" th:value="${tag}">
                 </div>
-
-
-                <div class="container-fluid main ">
-                    <div class="row">
-                        <div class="alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                             th:text="${error}"
-                             th:if="${error != null}">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" th:if="${error != null}">
+                    <div class="alert alert-warning" role="alert" th:text="${error}"></div>
                         </div>
-                        <div>
-                            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                <button type="submit" class="btn btn-success btn-publish ">
-                                    发布
-                                </button>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button type="submit" class="btn btn-success btn-publish btn-publish-right">
+                        发布
+                    </button>
                         </div>
-                    </div>
-                </div>
             </form>
         </div>
-        <div class="col-lg-3 col-md-12 col-xs-12" >
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <h3>问题发起注意事项</h3>
             <hr/>
             <h4>1    摩点仅为发起者和支持者之间的预售提供平台网络空间、技术服务和支持等服务.<br/>
@@ -93,8 +85,7 @@
                 <hr/>
             </h4>
         </div>
-    </div>
-    </div>
+        </div>
 <div th:replace="~{commons/bar.html :: foot}"></div>
 </body>
 </html>
