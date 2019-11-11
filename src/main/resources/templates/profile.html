@@ -123,7 +123,7 @@
         <div class="list-group section">
             <a href="/profile/questions" th:class="${section=='questions'}?'active list-group-item active':'list-group-item'" >我的提问
             </a>
-            <a href="/profile/replies" th:class="${section=='replies'}?'active list-group-item ':'list-group-item '" >最新私信
+            <a href="/profile/replies" th:class="${section=='replies'}?'active list-group-item ':'list-group-item '">最新回复
                 <span class="badge" th:text="${session.unreadCount}" th:if="${session.unreadCount!=0}" ></span></a>
         </div>
     </div>
